@@ -3,13 +3,17 @@ package kosmo.hdpay;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import kosmo.hdpay.vo.MemberVo;
+
 public class SessionManager {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-
+    String SHARED_PREF_NAME = "session";
+    String SESSION_MemCode = "session_memcode";
+    String SESSION_MemName = "session_memname";
     // Create constructor
     public SessionManager(Context context){
-        sharedPreferences = context.getSharedPreferences("AppKey",0);
+        sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME,context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         editor.apply();
     }
@@ -25,15 +29,29 @@ public class SessionManager {
         return sharedPreferences.getBoolean("KEY_LOGIN",false);
     }
 
-    // Create set username method
-    public void setUsername(String username){
-        editor.putString("KEY_USERNAME",username);
-        editor.commit();
+    // 세션 저장
+    public void saveSession(MemberVo vo){
+        //save session of user whenever user is logged in
+        int mem_code = vo.getMem_code();
+        String mem_name = vo.getMem_name();
+        editor.putInt(SESSION_MemCode, mem_code).commit();
+        editor.putString(SESSION_MemName, mem_name).commit();
     }
 
-    // Create get username method
-    public String getUsername(){
-        return sharedPreferences.getString("KEY_USERNAME","");
+    // 세션 얻기
+    public int getMemcode(){
+        //return user id whose session is saved
+        return sharedPreferences.getInt(SESSION_MemCode, -1);
+    }
+    public String getMemname(){
+        //return user id whose session is saved
+        return sharedPreferences.getString(SESSION_MemName, null);
+    }
+
+    // 세션 지우기
+    public void removeSession(){
+        editor.putInt(SESSION_MemCode,-1).commit();
+        editor.putInt(SESSION_MemName,-1).commit();
     }
 
 }

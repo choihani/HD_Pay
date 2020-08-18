@@ -16,7 +16,6 @@ public class MainPage extends AppCompatActivity {
     TextView mem_name;
     Button logoutBtn;
 
-
     SessionManager sessionManager;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,7 +30,7 @@ public class MainPage extends AppCompatActivity {
         sessionManager = new SessionManager(getApplicationContext());
 
         // Get username from session
-        String sMem_name = sessionManager.getUsername();
+        String sMem_name = sessionManager.getMemname();
 
         // Set username on TextView
         mem_name.setText(sMem_name);
@@ -46,13 +45,13 @@ public class MainPage extends AppCompatActivity {
                 // Set message
                 builder.setMessage("로그아웃 하십니까?");
                 // Set positive button
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         // Set login false
                         sessionManager.setLogin(false);
                         // Set username empty
-                        sessionManager.setUsername("");
+                        sessionManager.removeSession();
                         //Redirect activity
                         startActivity(new Intent(getApplicationContext()
                                 ,MainActivity.class));
@@ -62,7 +61,7 @@ public class MainPage extends AppCompatActivity {
                 });
 
                 // Set negative button
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();
