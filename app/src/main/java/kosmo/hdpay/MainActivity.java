@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     // Store login in session
                     sessionManager.setLogin(true);
                     // Store username in Session
-                    sessionManager.setUsername(sMem_email);
+
                     // Redirect acticity
                     startActivity(new Intent(getApplicationContext(),
                             MainPage.class));

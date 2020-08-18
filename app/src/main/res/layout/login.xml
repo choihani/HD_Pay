@@ -41,7 +41,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
+                android:layout_marginRight="20dp"
+                android:text="wlsgb94@naver.com">
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -57,7 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:inputType="textPassword">
+                android:inputType="textPassword"
+                android:text="1234">
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
         <Button
@@ -71,6 +73,16 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:text="로그인" />
+
+        <Button
+            android:id="@+id/biometric_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="지문 로그인"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="261dp" />
 
         <ImageView
             android:layout_width="wrap_content"
