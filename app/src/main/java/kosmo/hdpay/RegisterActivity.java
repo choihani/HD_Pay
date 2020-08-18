@@ -19,6 +19,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import kosmo.hdpay.vo.MemberVo;
+
 public class RegisterActivity extends AsyncTask<String, Void, String> {
     String sendMsg, receiveMsg;
 
