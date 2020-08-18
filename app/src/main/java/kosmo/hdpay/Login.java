@@ -4,12 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 public class Login extends AppCompatActivity {
+
+    //static RequestQueue requestQueue;
 
     Button loginBtn;
     EditText mem_email, mem_pwd;
@@ -19,14 +23,25 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        setTitle("ORACLE");
+        //setTitle("ORACLE");
 
         loginBtn = findViewById(R.id.loginBtn);
         mem_email = findViewById(R.id.mem_email);
         mem_pwd = findViewById(R.id.mem_pwd);
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+
+        loginBtn.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {
+//                Toast.makeText(Login.this,"버튼눌림",Toast.LENGTH_SHORT).show();
+
+//                String email = mem_email.getText().toString();
+//                String pw = mem_pwd.getText().toString();
+                //System.out.println("id:"+id+",pw:"+pw);
+
+//                HDConnection conn = new HDConnection();
+//                conn.request("http://192.168.0.16:8080/project_Dank/hdpaylogin");
+
+
                 try {
                     Toast.makeText(Login.this,"버튼눌림",Toast.LENGTH_SHORT).show();
                     String result;
@@ -51,7 +66,10 @@ public class Login extends AppCompatActivity {
                 } catch (Exception e) {
                     Log.i("DBtest", ".....ERROR.....!");
                 }
+
             }
         });
+
+        //requestQueue = Volley.newRequestQueue(getApplicationContext());
     }
 }
