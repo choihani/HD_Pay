@@ -1,4 +1,4 @@
-package kosmo.hdpay;
+package kosmo.hdpay.vo;
 
 public class MemberVo {
     int mem_code;

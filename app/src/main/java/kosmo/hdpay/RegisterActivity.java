@@ -10,6 +10,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import kosmo.hdpay.vo.MemberVo;
+
 public class RegisterActivity extends AsyncTask<String, Void, String> {
     String sendMsg, receiveMsg;
 
