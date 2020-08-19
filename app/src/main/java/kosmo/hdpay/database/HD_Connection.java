@@ -63,12 +63,7 @@ public class HD_Connection extends AsyncTask<String, Void, String> {
             }
             System.out.println("sb : " + sb.toString());
 
-            // strings[1] => mem_email
-            // strings[2] => wlsgb94@naver.com
-            // 전송할 데이터. GET 방식으로 작성
-//            sendMsg = "mem_email=" + strings[0] + "&mem_pwd=" + strings[1];
             sendMsg = sb.toString();
-
 
             osw.write(sendMsg);
             osw.flush();
