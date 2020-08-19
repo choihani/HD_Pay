@@ -19,7 +19,6 @@ public class LoginFingerprint extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
         executor = ContextCompat.getMainExecutor(this);
         biometricPrompt = new BiometricPrompt(LoginFingerprint.this,
                 executor, new BiometricPrompt.AuthenticationCallback() {

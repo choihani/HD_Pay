@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainPage">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,125 +14,224 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
             android:layout_gravity="center"
-            android:layout_margin="20dp"
-            android:layout_weight="1"
+            android:layout_margin="10dp"
             app:srcCompat="@drawable/hdpay_text" />
 
-        <TextView
-            android:id="@+id/mem_name"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/gmarket_font"
-            android:gravity="center"
-            android:text="최하니님"
-            android:textSize="30dp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mem_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:fontFamily="@font/gmarket_sans_b"
+            android:gravity="left|center"
+            android:text="최하니"
+            android:textColor="#000000"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@drawable/bin_blue"
+            android:text="로그아웃"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/gmarket_sans_m"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:fontFamily="@font/gmarket_font"
-            android:layout_marginLeft="20dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/gmarket_sans_m"
+            android:textColor="#000000"
             android:layout_marginRight="10dp"
-            android:text="총 계좌 잔액" />
+            android:text="계좌" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/gmarket_font"
+            android:fontFamily="@font/gmarket_sans_m"
             android:textSize="25dp"
+            android:gravity="right"
+            android:layout_marginRight="10dp"
+            android:textColor="#000000"
             android:layout_weight="1"
-            android:text="1,684,310" />
+            android:text="1,684,310원" />
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="2px"
+        android:background="#555555" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/acListBtn"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/bin_blue"
-            android:textColor="#ffffff"
-            android:textSize="20dp"
-            android:layout_marginLeft="10dp"
+            android:layout_weight="5"
+            android:background="@color/zxing_transparent"
+            android:textColor="#000000"
+            android:textSize="40dp"
             android:layout_marginRight="10dp"
+            android:fontFamily="@font/gmarket_sans_b"
+            android:gravity="left"
             android:text="조회" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageButton
+            android:id="@+id/acListImg"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:background="@drawable/bin_blue"
-            android:textColor="#ffffff"
-            android:textSize="20dp"
-            android:layout_marginRight="10dp"
-            android:text="이체" />
-        <Button
-            android:id="@+id/logoutBtn"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/bin_blue"
-            android:textColor="#ffffff"
-            android:textSize="20dp"
-            android:layout_marginRight="10dp"
-            android:text="로그아웃" />
+            android:background="@color/zxing_transparent"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/icons8_us_dollar_100" />
+
+
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="2px"
+        android:background="#555555" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:layout_marginTop="30dp">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/imageButton8"
+        <Button
+            android:id="@+id/transferBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/icons8_dollar_place_marker_100" />
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_weight="5"
+            android:background="@color/zxing_transparent"
+            android:fontFamily="@font/gmarket_sans_b"
+            android:gravity="left"
+            android:text="이체"
+            android:textColor="#000000"
+            android:textSize="40dp" />
 
         <ImageButton
-            android:id="@+id/imageButton5"
+            android:id="@+id/transferImg"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@color/zxing_transparent"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/icons8_get_cash_100" />
+
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="2px"
+        android:background="#555555" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/payCardBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/icons8_us_dollar_100" />
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_weight="3"
+            android:background="@color/zxing_transparent"
+            android:fontFamily="@font/gmarket_sans_b"
+            android:gravity="left"
+            android:text="QR 결제"
+            android:textColor="#000000"
+            android:textSize="40dp" />
 
         <ImageButton
-            android:id="@+id/imageButton7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/payCardImg"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
+            android:background="@color/zxing_transparent"
+            android:scaleType="centerInside"
             app:srcCompat="@drawable/icons8_credit_card_100" />
 
-        <ImageButton
-            android:id="@+id/imageButton6"
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="2px"
+        android:background="#555555" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/mapServiceBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_weight="5"
+            android:background="@color/zxing_transparent"
+            android:fontFamily="@font/gmarket_sans_b"
+            android:gravity="left"
+            android:text="지도"
+            android:textColor="#000000"
+            android:textSize="40dp" />
+
+        <ImageButton
+            android:id="@+id/mapServiceImg"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/icons8_get_cash_100" />
+            android:background="@color/zxing_transparent"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/icons8_dollar_place_marker_100" />
+
     </LinearLayout>
 
 </LinearLayout>
