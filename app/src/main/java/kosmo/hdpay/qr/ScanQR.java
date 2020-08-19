@@ -18,7 +18,7 @@ public class ScanQR extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.qr_pay);
+        setContentView(R.layout.activity_scan_qr);
 
         //new IntentIntegrator(this).initiateScan(); //가로버전
         qrScan = new IntentIntegrator(this);
