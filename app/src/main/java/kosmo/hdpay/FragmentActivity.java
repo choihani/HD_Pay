@@ -17,6 +17,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import kosmo.hdpay.vo.QRActivity;
+
 public class FragmentActivity extends AppCompatActivity {
 
     TextView mem_name;
@@ -43,7 +45,7 @@ public class FragmentActivity extends AppCompatActivity {
     }
 
     public void qrpay(View view){
-        Intent intent = new Intent(getApplicationContext(), ScanQR.class);
+        Intent intent = new Intent(getApplicationContext(), QRActivity.class);
         startActivity(intent);
     }
 
