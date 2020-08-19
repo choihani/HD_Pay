@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="690dp"
         android:orientation="vertical"
-        tools:context=".CreateQR">
+        tools:context=".qr.CreateQR">
 
         <ImageView
             android:id="@+id/qrcode"

@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".LoginActivity"
+        <activity android:name=".main_view.LoginActivity"
             tools:ignore="DuplicateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,10 +24,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".FragmentActivity"/>
+        <activity android:name=".main_view.FragmentActivity"/>
         <activity android:name=".MainPage_fail"/>
-        <activity android:name=".CreateQR" />
-        <activity android:name=".ScanQR" />
+        <activity android:name=".qr.CreateQR" />
+        <activity android:name=".qr.ScanQR" />
         <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation"/>

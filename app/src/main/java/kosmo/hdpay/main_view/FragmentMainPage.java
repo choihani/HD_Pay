@@ -1,4 +1,4 @@
-package kosmo.hdpay;
+package kosmo.hdpay.main_view;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,16 +8,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import kosmo.hdpay.database.DepositMethod;
+import kosmo.hdpay.R;
+import kosmo.hdpay.session.SessionManager;
+
 
 public class FragmentMainPage extends Fragment {
 
-    TextView mem_name;
+    TextView mem_name,totalBalance;
     Button logoutBtn;
 
     SessionManager sessionManager;
@@ -26,16 +29,18 @@ public class FragmentMainPage extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.mainpage, container, false);
+        DepositMethod depositMethod = new DepositMethod();
 
         mem_name = view.findViewById(R.id.mem_name);
         logoutBtn = view.findViewById(R.id.logoutBtn);
+        totalBalance = view.findViewById(R.id.totalBalance);
 
         // Initialize session manager
         sessionManager = new SessionManager(getContext());
         String sMem_name = sessionManager.getMemname();
         System.out.println("sMem_name: "+sMem_name);
         mem_name.setText(sMem_name);
-
+        totalBalance.setText(depositMethod.numberChange(depositMethod.getBalance(getContext()))+"원");
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,7 +60,7 @@ public class FragmentMainPage extends Fragment {
                         sessionManager.removeSession();
                         //Redirect activity
                         startActivity(new Intent(getContext()
-                                ,LoginActivity.class));
+                                , LoginActivity.class));
                         // Finish activity
                         try {
                             finalize();
@@ -80,6 +85,8 @@ public class FragmentMainPage extends Fragment {
             }
         });
         return view;
-
     }
+
+
+
 }
