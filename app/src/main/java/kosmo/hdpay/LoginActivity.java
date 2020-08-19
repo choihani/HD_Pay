@@ -3,6 +3,7 @@ package kosmo.hdpay;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -34,6 +35,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.login);
         System.out.println("로그인 페이지 입장");
 
@@ -47,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                
+
                 System.out.println("mem_email:"+mem_email+",mem_pwd"+mem_pwd);
                 String sMem_email = mem_email.getText().toString().trim();
                 String sMem_pwd = mem_pwd.getText().toString().trim();
@@ -68,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                         sessionManager.setLogin(true);
                         sessionManager.saveSession(member);
                         startActivity(new Intent(getApplicationContext(),
-                            MainPage.class));
+                            FragmentActivity.class));
                         finish();
 
                     }else{
@@ -130,7 +133,7 @@ public class LoginActivity extends AppCompatActivity {
         // 재접속시 세션을 유지하고 있다면 자동 로그인
         if(sessionManager.getLogin()){
             startActivity(new Intent(getApplicationContext()
-                    ,MainPage.class));
+                    ,FragmentActivity.class));
         }
     }
 }
