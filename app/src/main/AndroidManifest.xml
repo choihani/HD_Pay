@@ -28,6 +28,7 @@
         <activity android:name=".MainPage_fail"/>
         <activity android:name=".qr.CreateQR" />
         <activity android:name=".qr.ScanQR" />
+        <activity android:name=".qr.QRActivity" />
         <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation"/>

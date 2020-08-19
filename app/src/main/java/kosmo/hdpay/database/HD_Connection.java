@@ -9,6 +9,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 
 public class HD_Connection extends AsyncTask<String, Void, String> {
     String sendMsg, receiveMsg;
@@ -29,7 +30,7 @@ public class HD_Connection extends AsyncTask<String, Void, String> {
             String path = strings[0];
             System.out.println("path: "+ path);
             // 접속할 서버 주소 (이클립스에서 android.jsp 실행시 웹브라우저 주소)
-            URL url = new URL("http://192.168.0.167/project_Dank/" + path);
+            URL url = new URL("http://192.168.0.16/project_Dank/" + path);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -38,6 +39,9 @@ public class HD_Connection extends AsyncTask<String, Void, String> {
             conn.setDoOutput(true);
 
             OutputStreamWriter osw = new OutputStreamWriter(conn.getOutputStream());
+
+
+            String encStr = null;
 
             // 보내야할 (데이터의 수*2)를 정한뒤 보낸다.
             int dataSize = Integer.parseInt(strings[1]);
@@ -48,7 +52,10 @@ public class HD_Connection extends AsyncTask<String, Void, String> {
                 if(i%2==0){
                     sb.append(strings[i]).append("=");
                 }else{
-                    sb.append(strings[i]);
+                    encStr =URLEncoder.encode(strings[i],"euc-kr");
+                    System.out.println(encStr);
+                    sb.append(encStr);
+
                     if (dataSize+1 > i){
                         sb.append("&");
                     }
