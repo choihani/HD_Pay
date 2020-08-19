@@ -25,7 +25,7 @@
         </activity>
 
         <activity android:name=".FragmentActivity"/>
-        <activity android:name=".MainPage"/>
+        <activity android:name=".MainPage_fail"/>
         <activity android:name=".CreateQR" />
         <activity android:name=".ScanQR" />
         <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"

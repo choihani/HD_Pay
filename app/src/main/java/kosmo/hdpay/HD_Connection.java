@@ -18,8 +18,18 @@ public class HD_Connection extends AsyncTask<String, Void, String> {
         try {
             String str;
 
+            for(int i = 0; i<strings.length; i++){
+                System.out.println("string["+i+"]"+strings[i]);
+            }
+            // 로그인 시 : hdpaylogin
+            // 카드 생성 : addCard
+            // 계좌 조회 : listAc
+            // ...
+            // *** strings[0] 에 @RequestMapping(value = "/listAc"); 를 담는다. ***
+            String path = strings[0];
+            System.out.println("path: "+ path);
             // 접속할 서버 주소 (이클립스에서 android.jsp 실행시 웹브라우저 주소)
-            URL url = new URL("http://192.168.0.167/project_Dank/hdpaylogin");
+            URL url = new URL("http://192.168.0.167/project_Dank/" + path);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -27,11 +37,30 @@ public class HD_Connection extends AsyncTask<String, Void, String> {
 //            conn.setDoInput(true);
             conn.setDoOutput(true);
 
-//            OutputStreamWriter osw = new OutputStreamWriter(conn.getOutputStream());
             OutputStreamWriter osw = new OutputStreamWriter(conn.getOutputStream());
-            System.out.println("OutputStreamWriter 에러");
+
+            // 보내야할 (데이터의 수*2)를 정한뒤 보낸다.
+            int dataSize = Integer.parseInt(strings[1]);
+            StringBuffer sb = new StringBuffer();
+            // 사용 예시) 짝수번에 파라미터 이름, 홀수번에 데이터를 넣는다.
+            for (int i = 2; i<=dataSize+1; i++){
+                System.out.println(i);
+                if(i%2==0){
+                    sb.append(strings[i]).append("=");
+                }else{
+                    sb.append(strings[i]);
+                    if (dataSize+1 > i){
+                        sb.append("&");
+                    }
+                }
+            }
+            System.out.println("sb : " + sb.toString());
+
+            // strings[1] => mem_email
+            // strings[2] => wlsgb94@naver.com
             // 전송할 데이터. GET 방식으로 작성
-            sendMsg = "mem_email=" + strings[0] + "&mem_pwd=" + strings[1];
+//            sendMsg = "mem_email=" + strings[0] + "&mem_pwd=" + strings[1];
+            sendMsg = sb.toString();
 
 
             osw.write(sendMsg);

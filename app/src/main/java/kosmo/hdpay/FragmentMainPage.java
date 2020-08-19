@@ -82,6 +82,4 @@ public class FragmentMainPage extends Fragment {
         return view;
 
     }
-
-
 }

@@ -35,8 +35,6 @@ public class FragmentActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.login_after_main_page);
 
-
-
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragmentMainPage).commitAllowingStateLoss();
 
