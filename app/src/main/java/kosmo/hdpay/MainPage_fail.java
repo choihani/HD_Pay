@@ -12,12 +12,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import kosmo.hdpay.session.SessionManager;
+
 public class MainPage_fail extends AppCompatActivity {
 
     TextView mem_name;
     Button logoutBtn;
 
-    SessionManager sessionManager; 
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

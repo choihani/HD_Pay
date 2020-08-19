@@ -1,4 +1,4 @@
-package kosmo.hdpay;
+package kosmo.hdpay.main_view;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -10,6 +10,8 @@ import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 
 import java.util.concurrent.Executor;
+
+import kosmo.hdpay.R;
 
 public class LoginFingerprint extends AppCompatActivity {
     private Executor executor;

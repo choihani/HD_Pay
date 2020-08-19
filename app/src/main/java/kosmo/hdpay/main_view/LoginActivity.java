@@ -1,4 +1,4 @@
-package kosmo.hdpay;
+package kosmo.hdpay.main_view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +19,9 @@ import com.google.gson.Gson;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 
+import kosmo.hdpay.R;
+import kosmo.hdpay.database.HD_Connection;
+import kosmo.hdpay.session.SessionManager;
 import kosmo.hdpay.vo.MemberVO;
 
 public class LoginActivity extends AppCompatActivity {

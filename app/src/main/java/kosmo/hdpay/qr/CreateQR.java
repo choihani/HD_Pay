@@ -1,4 +1,4 @@
-package kosmo.hdpay;
+package kosmo.hdpay.qr;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
+
+import kosmo.hdpay.R;
 
 public class CreateQR extends AppCompatActivity {
     private ImageView iv;

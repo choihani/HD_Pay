@@ -1,4 +1,4 @@
-package kosmo.hdpay;
+package kosmo.hdpay.session;
 
 import android.content.Context;
 import android.content.SharedPreferences;
