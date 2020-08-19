@@ -17,7 +17,7 @@ public class MainPage_fail extends AppCompatActivity {
     TextView mem_name;
     Button logoutBtn;
 
-    SessionManager sessionManager;
+    SessionManager sessionManager; 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
