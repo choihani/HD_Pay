@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
                     // Redirect acticity
                     startActivity(new Intent(getApplicationContext(),
-                            MainPage.class));
+                            MainPage_fail.class));
                     finish();
                 }
                 // When password is wrong
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         // If user already logged in
         if(sessionManager.getLogin()){
             startActivity(new Intent(getApplicationContext()
-                    ,MainPage.class));
+                    , MainPage_fail.class));
         }
     }
 

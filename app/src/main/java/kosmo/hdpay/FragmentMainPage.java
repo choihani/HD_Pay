@@ -82,4 +82,9 @@ public class FragmentMainPage extends Fragment {
         return view;
 
     }
+
+    private void getBalanceData(){
+        HD_Connection task = new HD_Connection();
+
+    }
 }

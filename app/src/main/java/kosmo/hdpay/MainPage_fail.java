@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainPage extends AppCompatActivity {
+public class MainPage_fail extends AppCompatActivity {
 
     TextView mem_name;
     Button logoutBtn;
@@ -80,8 +80,5 @@ public class MainPage extends AppCompatActivity {
         });
     }
 
-    private void getBalanceData(){
-        HD_Connection task = new HD_Connection();
 
-    }
 }
