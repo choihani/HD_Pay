@@ -20,6 +20,7 @@ public class DepositMethod {
         String changeNumber = format.format(number);
         return changeNumber;
     }
+
     public int getBalance(Context context){
         int totalBalance = 0;
         String result;
@@ -33,15 +34,12 @@ public class DepositMethod {
 
         try {
             result = task.execute("listAc","2","mem_code",mem_code).get();
-            System.out.println("result:"+result.getClass());
             Gson gson = new Gson();
-            System.out.println("gson : "+gson);
 
             // *****************************************************************************
             List<AccountVO> list = gson.fromJson(result,new TypeToken<ArrayList<AccountVO>>(){}.getType());
             for(AccountVO e : list){
                 totalBalance += e.getAc_balance();
-                System.out.println("totalBalance: "+totalBalance);
             }
         } catch (ExecutionException e) {
             e.printStackTrace();
