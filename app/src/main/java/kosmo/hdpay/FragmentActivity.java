@@ -44,6 +44,11 @@ public class FragmentActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
     }
 
+    public void qrpay(View view){
+        Intent intent = new Intent(getApplicationContext(), ScanQR.class);
+        startActivity(intent);
+    }
+
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

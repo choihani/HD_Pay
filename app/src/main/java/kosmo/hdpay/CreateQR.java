@@ -17,7 +17,7 @@ public class CreateQR extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_qr);
+        setContentView(R.layout.qr_pay);
 
         iv = (ImageView)findViewById(R.id.qrcode);
         text = "https://park-duck.tistory.com";
