@@ -3,7 +3,7 @@ package kosmo.hdpay;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import kosmo.hdpay.vo.MemberVo;
+import kosmo.hdpay.vo.MemberVO;
 
 public class SessionManager {
     SharedPreferences sharedPreferences;
@@ -30,7 +30,7 @@ public class SessionManager {
     }
 
     // 세션 저장
-    public void saveSession(MemberVo vo){
+    public void saveSession(MemberVO vo){
         //save session of user whenever user is logged in
         int mem_code = vo.getMem_code();
         String mem_name = vo.getMem_name();

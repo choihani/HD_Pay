@@ -79,4 +79,9 @@ public class MainPage extends AppCompatActivity {
             }
         });
     }
+
+    private void getBalanceData(){
+        HD_Connection task = new HD_Connection();
+
+    }
 }
