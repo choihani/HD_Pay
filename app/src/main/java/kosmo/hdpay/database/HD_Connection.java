@@ -1,4 +1,4 @@
-package kosmo.hdpay;
+package kosmo.hdpay.database;
 
 import android.os.AsyncTask;
 

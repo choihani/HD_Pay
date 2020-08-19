@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
+import kosmo.hdpay.qr.CreateQR;
+import kosmo.hdpay.qr.ScanQR;
+
 public class MainActivity extends AppCompatActivity {
     private Button createQRBtn;
     private Button scanQRBtn;

@@ -1,6 +1,5 @@
-package kosmo.hdpay;
+package kosmo.hdpay.main_view;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -10,12 +9,15 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import kosmo.hdpay.R;
+import kosmo.hdpay.qr.ScanQR;
+import kosmo.hdpay.session.SessionManager;
 
 public class FragmentActivity extends AppCompatActivity {
 
