@@ -3,40 +3,37 @@ package kosmo.hdpay;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-public class MainPage extends AppCompatActivity {
+
+public class FragmentMainPage extends Fragment {
 
     TextView mem_name;
     Button logoutBtn;
 
     SessionManager sessionManager;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.mainpage);
 
-        // Assign variable
-        mem_name = findViewById(R.id.mem_name);
-        logoutBtn = findViewById(R.id.logoutBtn);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.mainpage, container, false);
+
+        mem_name = view.findViewById(R.id.mem_name);
+        logoutBtn = view.findViewById(R.id.logoutBtn);
 
         // Initialize session manager
-        sessionManager = new SessionManager(getApplicationContext());
-
-        // Get username from session
+        sessionManager = new SessionManager(getContext());
         String sMem_name = sessionManager.getMemname();
-
-        // Set username on TextView
+        System.out.println("sMem_name: "+sMem_name);
         mem_name.setText(sMem_name);
 
         logoutBtn.setOnClickListener(new View.OnClickListener() {
@@ -57,10 +54,14 @@ public class MainPage extends AppCompatActivity {
                         // Set username empty
                         sessionManager.removeSession();
                         //Redirect activity
-                        startActivity(new Intent(getApplicationContext()
-                                ,MainActivity.class));
+                        startActivity(new Intent(getContext()
+                                ,LoginActivity.class));
                         // Finish activity
-                        finish();
+                        try {
+                            finalize();
+                        } catch (Throwable throwable) {
+                            throwable.printStackTrace();
+                        }
                     }
                 });
 
@@ -78,5 +79,7 @@ public class MainPage extends AppCompatActivity {
                 alertDialog.show();
             }
         });
+        return view;
+
     }
 }
