@@ -19,7 +19,7 @@ import com.google.gson.Gson;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 
-import kosmo.hdpay.vo.MemberVo;
+import kosmo.hdpay.vo.MemberVO;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -59,12 +59,12 @@ public class LoginActivity extends AppCompatActivity {
 
                 System.out.println("여기까지 가능");
                 try {
-                    result = task.execute(sMem_email, sMem_pwd).get();
+                    result = task.execute("hdpaylogin","4","mem_email",sMem_email,"mem_pwd", sMem_pwd).get();
                     System.out.println("result:"+result);
 
                     Gson gson = new Gson();
                     System.out.println("gson : "+gson);
-                    MemberVo member = gson.fromJson(result, MemberVo.class);
+                    MemberVO member = gson.fromJson(result, MemberVO.class);
                     System.out.println("member : "+member);
                     if(member != null){
                         Toast.makeText(getApplicationContext(),"로그인 성공!",Toast.LENGTH_SHORT).show();
