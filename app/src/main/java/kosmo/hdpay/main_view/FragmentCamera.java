@@ -13,7 +13,7 @@ import kosmo.hdpay.R;
 
 public class FragmentCamera extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_camera, container, false);
+        return inflater.inflate(R.layout.fragment_deposit_lsit, container, false);
     }
 
 }

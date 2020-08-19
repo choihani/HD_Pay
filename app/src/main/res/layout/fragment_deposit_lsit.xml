@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="오늘까지 소비/수입"
+            android:textSize="20dp"
+
+            />
+
+        <TextView
+            android:id="@+id/spendMoney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-555,555"
+            android:fontFamily="@font/gmarket_sans_b"
+            android:textSize="40dp" />
+
+        <TextView
+            android:id="@+id/receivedMoney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+150,000"
+            android:fontFamily="@font/gmarket_sans_b"
+            android:textSize="40dp" />
+
+    </LinearLayout>
+
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_margin="20dp"
+        android:background="#555555"
+        />
+
+    <ListView
+        android:id="@+id/"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
