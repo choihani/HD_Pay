@@ -54,7 +54,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                System.out.println("mem_email:"+mem_email+",mem_pwd"+mem_pwd);
                 String sMem_email = mem_email.getText().toString().trim();
                 String sMem_pwd = mem_pwd.getText().toString().trim();
                 String result;
@@ -63,12 +62,8 @@ public class LoginActivity extends AppCompatActivity {
                 System.out.println("여기까지 가능");
                 try {
                     result = task.execute("hdpaylogin","4","mem_email",sMem_email,"mem_pwd", sMem_pwd).get();
-                    System.out.println("result:"+result);
-
                     Gson gson = new Gson();
-                    System.out.println("gson : "+gson);
                     MemberVO member = gson.fromJson(result, MemberVO.class);
-                    System.out.println("member : "+member);
                     if(member != null){
                         Toast.makeText(getApplicationContext(),"로그인 성공!",Toast.LENGTH_SHORT).show();
                         sessionManager.setLogin(true);
