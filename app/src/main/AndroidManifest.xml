@@ -29,6 +29,7 @@
         <activity android:name=".qr.CreateQR" />
         <activity android:name=".qr.ScanQR" />
         <activity android:name=".qr.QRActivity" />
+        <activity android:name=".depositInquire.DepositAtivity" />
         <activity android:name=".qr.StorePay" />
         <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"

@@ -108,6 +108,7 @@
             android:layout_marginRight="10dp"
             android:fontFamily="@font/gmarket_sans_b"
             android:gravity="left"
+            android:onClick="inquireClick"
             android:text="조회" />
 
         <ImageButton
