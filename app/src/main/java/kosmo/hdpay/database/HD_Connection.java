@@ -1,6 +1,7 @@
 package kosmo.hdpay.database;
 
 import android.os.AsyncTask;
+import android.widget.EditText;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -48,7 +49,7 @@ public class HD_Connection extends AsyncTask<String, Void, String> {
             StringBuffer sb = new StringBuffer();
             // 사용 예시) 짝수번에 파라미터 이름, 홀수번에 데이터를 넣는다.
             for (int i = 2; i<=dataSize+1; i++){
-                System.out.println(i);
+                System.out.println("strings["+i+"] : "+strings[i]);
                 if(i%2==0){
                     sb.append(strings[i]).append("=");
                 }else{
