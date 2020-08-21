@@ -71,19 +71,19 @@ public class QRActivity extends AppCompatActivity {
         HD_Connection conn = new HD_Connection();
         CardDTO cardDTO = null;
         try {
+            //DB에 있는 카드정보를 불러오기위해 DB와 Connection하는 부분
             String result = conn.execute("cardDetail", "2", "card_type", card_type).get();
             System.out.println("result : " + result);
 
             MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
             try{
+                //QR코드 구현 부분
                 BitMatrix bitMatrix = multiFormatWriter.encode(result, BarcodeFormat.QR_CODE,200,200);
                 BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                 Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
                 iv.setImageBitmap(bitmap);
-
             }catch (Exception e){}
-
-
+            //JSon형식의 String으로 받아온 데이터를 Gson을 이용해 파싱
             Gson gson = new Gson();
             cardDTO = gson.fromJson(result, CardDTO.class);
             System.out.println(cardDTO.getAc_balance());
