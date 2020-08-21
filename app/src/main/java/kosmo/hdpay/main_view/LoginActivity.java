@@ -123,10 +123,10 @@ public class LoginActivity extends AppCompatActivity {
         // Prompt appears when user clicks "Log in".
         // Consider integrating with the keystore to unlock cryptographic operations,
         // if needed by your app.
-        Button biometricLoginButton = findViewById(R.id.biometric_login);
-        biometricLoginButton.setOnClickListener(view -> {
-            biometricPrompt.authenticate(promptInfo);
-        });
+//        Button biometricLoginButton = findViewById(R.id.biometric_login);
+//        biometricLoginButton.setOnClickListener(view -> {
+//            biometricPrompt.authenticate(promptInfo);
+//        });
 
         // 재접속시 세션을 유지하고 있다면 자동 로그인
         if(sessionManager.getLogin()){
