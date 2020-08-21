@@ -35,6 +35,7 @@ public class DepositAtivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.depositDataList);
         totalBalance = findViewById(R.id.totalBalance);
         mem_name = findViewById(R.id.mem_name);
+
         // Initialize session manager
         sessionManager = new SessionManager(getApplicationContext());
         String sMem_name = sessionManager.getMemname();

@@ -1,10 +1,12 @@
 package kosmo.hdpay.qr;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -29,7 +31,7 @@ import kosmo.hdpay.vo.deposit.CardDTO;
 public class QRActivity extends AppCompatActivity {
     private ImageView iv;
     private TextView cardBal;
-
+    private Button scanQRBtn;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +40,7 @@ public class QRActivity extends AppCompatActivity {
         //final CardDTO card = null;
 
 
-        final String[] cardType = {"HD노리카드", "HD체크카드","card"};
+        final String[] cardType = {"HD 노리 체크카드", "HD VIVA 체크카드","HD 플래티넘 체크카드"};
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), R.layout.style_spiner_layout, cardType);
         adapter.setDropDownViewResource(R.layout.style_spiner_layout);
@@ -61,6 +63,15 @@ public class QRActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 System.out.println("버튼이 눌러지지 않음" );
+            }
+        });
+
+        scanQRBtn = findViewById(R.id.scanQRBtn);
+
+        scanQRBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),ScanQR.class));
             }
         });
 

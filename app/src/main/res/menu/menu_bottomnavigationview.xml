@@ -5,12 +5,8 @@
         android:id="@+id/searchMainPage"
         android:icon="@drawable/icons8_home_50"
         android:title="홈" />
-    <item
-        android:id="@+id/cameraItem"
-        android:icon="@drawable/icons8_calendar_16_50"
-        android:title="내 소비" />
-    <item
-        android:id="@+id/callItem"
-        android:icon="@drawable/icons8_doughnut_chart_50"
-        android:title="분석" />
+<!--    <item-->
+<!--        android:id="@+id/cameraItem"-->
+<!--        android:icon="@drawable/icons8_calendar_16_50"-->
+<!--        android:title="내 소비" />-->
 </menu>
