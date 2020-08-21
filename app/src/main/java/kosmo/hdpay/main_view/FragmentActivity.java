@@ -16,8 +16,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import kosmo.hdpay.R;
+import kosmo.hdpay.depositInquire.DepositAtivity;
 import kosmo.hdpay.qr.QRActivity;
-import kosmo.hdpay.qr.ScanQR;
 import kosmo.hdpay.session.SessionManager;
 
 public class FragmentActivity extends AppCompatActivity {
@@ -28,7 +28,7 @@ public class FragmentActivity extends AppCompatActivity {
 
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private FragmentMainPage fragmentMainPage = new FragmentMainPage();
-    private FragmentCamera fragmentCamera = new FragmentCamera();
+    private FragmentPayList fragmentPayList = new FragmentPayList();
     private FragmentCall fragmentCall = new FragmentCall();
 
     @Override
@@ -50,6 +50,11 @@ public class FragmentActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void inquireClick(View view){
+        startActivity(new Intent(getApplicationContext()
+                , DepositAtivity.class));
+    }
+
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -60,12 +65,12 @@ public class FragmentActivity extends AppCompatActivity {
                 case R.id.searchMainPage:
                     transaction.replace(R.id.frameLayout, fragmentMainPage).commitAllowingStateLoss();
                     break;
-                case R.id.cameraItem:
-                    transaction.replace(R.id.frameLayout, fragmentCamera).commitAllowingStateLoss();
-                    break;
-                case R.id.callItem:
-                    transaction.replace(R.id.frameLayout, fragmentCall).commitAllowingStateLoss();
-                    break;
+//                case R.id.cameraItem:
+//                    transaction.replace(R.id.frameLayout, fragmentPayList).commitAllowingStateLoss();
+//                    break;
+//                case R.id.callItem:
+//                    transaction.replace(R.id.frameLayout, fragmentCall).commitAllowingStateLoss();
+//                    break;
             }
             return true;
         }
