@@ -1,10 +1,12 @@
 package kosmo.hdpay.qr;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -29,7 +31,7 @@ import kosmo.hdpay.vo.deposit.CardDTO;
 public class QRActivity extends AppCompatActivity {
     private ImageView iv;
     private TextView cardBal;
-
+    private Button scanQRBtn;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +40,7 @@ public class QRActivity extends AppCompatActivity {
         //final CardDTO card = null;
 
 
-        final String[] cardType = {"HD노리카드", "HD체크카드","card"};
+        final String[] cardType = {"HD 노리 체크카드", "HD VIVA 체크카드","HD 플래티넘 체크카드"};
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), R.layout.style_spiner_layout, cardType);
         adapter.setDropDownViewResource(R.layout.style_spiner_layout);
@@ -64,6 +66,15 @@ public class QRActivity extends AppCompatActivity {
             }
         });
 
+        scanQRBtn = findViewById(R.id.scanQRBtn);
+
+        scanQRBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),ScanQR.class));
+            }
+        });
+
     }
 
     public int setQR(String card_type) {
@@ -71,19 +82,19 @@ public class QRActivity extends AppCompatActivity {
         HD_Connection conn = new HD_Connection();
         CardDTO cardDTO = null;
         try {
+            //DB에 있는 카드정보를 불러오기위해 DB와 Connection하는 부분
             String result = conn.execute("cardDetail", "2", "card_type", card_type).get();
             System.out.println("result : " + result);
 
             MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
             try{
+                //QR코드 구현 부분
                 BitMatrix bitMatrix = multiFormatWriter.encode(result, BarcodeFormat.QR_CODE,200,200);
                 BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                 Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
                 iv.setImageBitmap(bitmap);
-
             }catch (Exception e){}
-
-
+            //JSon형식의 String으로 받아온 데이터를 Gson을 이용해 파싱
             Gson gson = new Gson();
             cardDTO = gson.fromJson(result, CardDTO.class);
             System.out.println(cardDTO.getAc_balance());
