@@ -103,6 +103,34 @@ public class LoginActivity extends AppCompatActivity {
                 System.out.println("지문로그인 성공 : " + result +" : "+ result.getClass().getSimpleName());
                 Toast.makeText(getApplicationContext(),
                         "Authentication succeeded!", Toast.LENGTH_SHORT).show();
+
+                String sMem_email = "wlsgb94@naver.com";
+                String sMem_pwd = "1234";
+                String result_value;
+                HD_Connection task = new HD_Connection();
+
+                System.out.println("여기까지 가능");
+                try {
+                    result_value = task.execute("hdpaylogin","4","mem_email",sMem_email,"mem_pwd", sMem_pwd).get();
+                    Gson gson = new Gson();
+                    MemberVO member = gson.fromJson(result_value, MemberVO.class);
+                    if(member != null){
+                        Toast.makeText(getApplicationContext(),"로그인 성공!",Toast.LENGTH_SHORT).show();
+                        sessionManager.setLogin(true);
+                        sessionManager.saveSession(member);
+                        startActivity(new Intent(getApplicationContext(),
+                                FragmentActivity.class));
+                        finish();
+
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Email과 PW과 맞지 않습니다. 확인후 로그인해주세요",Toast.LENGTH_LONG).show();
+                    }
+
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -123,10 +151,10 @@ public class LoginActivity extends AppCompatActivity {
         // Prompt appears when user clicks "Log in".
         // Consider integrating with the keystore to unlock cryptographic operations,
         // if needed by your app.
-//        Button biometricLoginButton = findViewById(R.id.biometric_login);
-//        biometricLoginButton.setOnClickListener(view -> {
-//            biometricPrompt.authenticate(promptInfo);
-//        });
+        Button biometricLoginButton = findViewById(R.id.biometric_login);
+        biometricLoginButton.setOnClickListener(view -> {
+            biometricPrompt.authenticate(promptInfo);
+        });
 
         // 재접속시 세션을 유지하고 있다면 자동 로그인
         if(sessionManager.getLogin()){
