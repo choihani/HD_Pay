@@ -12,6 +12,7 @@ public class SessionManager {
     String SESSION_MemCode = "session_memcode";
     String SESSION_MemName = "session_memname";
     String SESSION_CardNum = "session_cardnum";
+    String SESSION_AccountNum = "session_accountnum";
     // Create constructor
     public SessionManager(Context context){
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME,context.MODE_PRIVATE);
@@ -39,20 +40,25 @@ public class SessionManager {
         editor.putString(SESSION_MemName, mem_name).commit();
     }
 
-    // 세션 얻기
+    // 멤버 코드 얻기
     public int getMemcode(){
         //return user id whose session is saved
         return sharedPreferences.getInt(SESSION_MemCode, -1);
     }
+    // 멤버 이름 얻기
     public String getMemname(){
         //return user id whose session is saved
         return sharedPreferences.getString(SESSION_MemName, null);
     }
 
+
+
     // 세션 지우기
     public void removeSession(){
         editor.putInt(SESSION_MemCode,-1).commit();
         editor.putInt(SESSION_MemName,-1).commit();
+        editor.putInt(SESSION_CardNum,-1).commit();
+        editor.putInt(SESSION_AccountNum,-1).commit();
     }
 
     // 카드 저장
@@ -65,9 +71,22 @@ public class SessionManager {
         //return user id whose session is saved
         return sharedPreferences.getInt(SESSION_CardNum, -1);
     }
+
+
+
     // 카드 지우기
     public void removeCardNum(){
         editor.putInt(SESSION_CardNum,-1).commit();
+    }
+
+    // 계좌번호 저장
+    public void saveAccountnum(String accountNum){
+        editor.putString(SESSION_AccountNum, accountNum).commit();
+    }
+
+    // 계좌 정보 얻기
+    public String getAccountnum(){
+        return sharedPreferences.getString(SESSION_AccountNum, null);
     }
 
 }
