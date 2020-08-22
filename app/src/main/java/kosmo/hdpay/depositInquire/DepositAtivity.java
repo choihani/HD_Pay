@@ -1,5 +1,6 @@
 package kosmo.hdpay.depositInquire;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -15,6 +16,7 @@ import java.util.HashMap;
 import kosmo.hdpay.R;
 import kosmo.hdpay.database.DepositMethod;
 import kosmo.hdpay.database.HD_Connection;
+import kosmo.hdpay.main_view.FragmentActivity;
 import kosmo.hdpay.session.SessionManager;
 
 public class DepositAtivity extends AppCompatActivity {
@@ -46,8 +48,11 @@ public class DepositAtivity extends AppCompatActivity {
         SimpleAdapter simpleAdapter = new SimpleAdapter(getApplicationContext(),myArrayList,R.layout.deposit_column,new String[]{"colImg","colName","colNum","colBalance"},new int[]{R.id.colImg, R.id.colName, R.id.colNum, R.id.colBalance});
         listView.setAdapter(simpleAdapter);
         listView.setOnItemClickListener((adapterView, view, position, l) -> {
-            Toast.makeText(getApplicationContext(),"클릭되어짐",Toast.LENGTH_SHORT);
-            depositMethod.getDeposit(getApplicationContext());
+            sessionManager.saveAccountnum(myArrayList.get(position).get("colNum").toString());
+            System.out.println(sessionManager.getAccountnum());
+            Toast.makeText(getApplicationContext(),myArrayList.get(position).get("colNum").toString(),Toast.LENGTH_SHORT);
+            startActivity(new Intent(getApplicationContext(),
+                    Account_allList.class));
         });
     }
 }

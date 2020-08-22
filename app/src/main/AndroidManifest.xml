@@ -25,6 +25,7 @@
         </activity>
 
 
+        <activity android:name=".depositInquire.Account_allList"/>
         <activity android:name=".main_view.FragmentActivity"/>
         <activity android:name=".MainPage_fail"/>
         <activity android:name=".qr.CreateQR" />
