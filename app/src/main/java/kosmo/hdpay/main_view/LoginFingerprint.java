@@ -1,5 +1,6 @@
 package kosmo.hdpay.main_view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
@@ -37,8 +38,10 @@ public class LoginFingerprint extends AppCompatActivity {
             public void onAuthenticationSucceeded(
                     @NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
+
                 Toast.makeText(getApplicationContext(),
                         "Authentication succeeded!", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
